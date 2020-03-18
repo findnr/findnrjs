@@ -1,2 +1,2 @@
-const ttt= require("../src/index");
+const ttt = require("../src/index");
 console.log(ttt);
