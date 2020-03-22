@@ -16,11 +16,11 @@ This is a tools,create tree ,find node, create animate
 
 ```
 let data =[
-{test_id:'1',name:"书",parent_id:0},
-{test_id:'2',name:"书",parent_id:1}
-{test_id:'3',name:"书",parent_id:2}
-{test_id:'4',name:"其它",parent_id:0}
-];
+            {test_id:'1',name:"书",parent_id:0},
+            {test_id:'2',name:"书",parent_id:1},
+            {test_id:'3',name:"书",parent_id:2},
+            {test_id:'4',name:"其它",parent_id:0}
+           ];
 ```
 
 > 第二个参数是 id 的名称:test_id
@@ -55,12 +55,18 @@ let newData=[
 > 第一个参数是原始数据：结构如下
 
 ```
-let data =[
-{test_id:'1',name:"书",parent_id:0},
-{test_id:'2',name:"书",parent_id:1}
-{test_id:'3',name:"书",parent_id:2}
-{test_id:'4',name:"其它",parent_id:0}
-];
+let newData=[
+            {test_id:'1',name:"书",parent_id:0,
+                children:[
+                    {test_id:'2',name:"编程开发",parent_id:1,
+                        children:[
+                            {test_id:'3',name:"javascript开发书",parent_id:2}
+                        ]
+                    }
+                ]
+            },
+            {test_id:'4',name:"其它",parent_id:0}
+        ]
 ```
 
 > 第二个参数是 id 的名称:test_id
