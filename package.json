@@ -1,6 +1,6 @@
 {
   "name": "findnrjs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "this is a js tools:create tree,find nodes,create animate",
   "main": "index.js",
   "scripts": {
