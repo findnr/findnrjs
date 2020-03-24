@@ -80,7 +80,7 @@ let newData=[
 > 返回的结果是：
 
 ```
-let newData={test_id:'3',name:"书",parent_id:2}
+let newData={test_id:'3',name:"javascript开发书",parent_id:2}
 ```
 
 #### CreateFloatAnimation() 创建一个页面漂浮的动画
