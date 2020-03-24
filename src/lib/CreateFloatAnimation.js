@@ -1,6 +1,7 @@
-module.exports = function CreateFloatAnimation(className = "") {
+module.exports = function CreateFloatAnimation(className = "",time=30) {
   if (!className) return "";
   let elObj = document.querySelector(className);
+  elObj.style.position="absolute";
   let showh =
     (document.documentElement.clientHeight || document.body.clientHeight) -
     elObj.offsetHeight;

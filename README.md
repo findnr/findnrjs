@@ -87,4 +87,15 @@ let newData={test_id:'3',name:"书",parent_id:2}
 
 > 第一个参数传入 class 或 id 名称，但不能有重复的 class 名称
 
-> `CreateFloatAnimation(className = "")`
+> 第二个参数为时间，默认为30,以ms为单位
+
+```
+<div class="test">
+</div>
+CreateFloatAnimation(".test");
+```
+```
+<div id="test">
+</div>
+CreateFloatAnimation("#test")
+```
