@@ -1,8 +1,8 @@
 {
   "name": "findnrjs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "this is a js tools:create tree,find nodes,create animate",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
