@@ -1,16 +1,16 @@
-# findnrjs
+#### findnrjs
 
 This is a tools,create tree ,find node, create animate
 
-# 说明:这是一个 js 常用小工具，以下是使用用方法 #安装
+#### 说明:这是一个 js 常用小工具，以下是使用用方法 #安装
 
 `npm install -save findnrjs`
 
-# 现有的函数
+#### 现有的函数
 
 `import {CreateNodeTree,FindNodeTree,CreateFloatAnimation} from "findnrjs"`
 
-# CreateNodeTree() 无限级栏目分类
+#### CreateNodeTree() 无限级栏目分类
 
 > 第一个参数是原始数据：结构如下
 
@@ -83,7 +83,7 @@ let newData=[
 let newData={test_id:'3',name:"书",parent_id:2}
 ```
 
-# FindNodeTree() 创建一个页面漂浮的动画
+#### CreateFloatAnimation() 创建一个页面漂浮的动画
 
 > 第一个参数传入 class 或 id 名称，但不能有重复的 class 名称
 
