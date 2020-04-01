@@ -4,7 +4,7 @@ This is a tools,create tree ,find node, create animate
 
 #### 说明:这是一个 js 常用小工具，以下是使用用方法 #安装
 
-`npm install -save findnrjs`
+`npm install --save findnrjs`
 
 #### 现有的函数
 
@@ -85,18 +85,29 @@ let newData={test_id:'3',name:"javascript开发书",parent_id:2}
 
 #### CreateFloatAnimation() 创建一个页面漂浮的动画
 
-> 第一个参数传入 class 或 id 名称，但不能有重复的 class 名称
+> 参数是个对象
 
-> 第二个参数为时间，默认为 30,以 ms 为单位
+```
+{
+    className: false, //必须传（元素名称）
+    speed: 30, //速度
+    width: 20, //关闭按钮的宽
+    height: 20,//关闭按钮的高
+    background: "none", //背景颜色
+    innerHtml: "x", //按钮的内容
+    fontSize: 10, //字体的大小
+    color: "#000" //字体的颜色
+}
+```
 
 ```
 <div class="test">
 </div>
-CreateFloatAnimation(".test");
+CreateFloatAnimation({className:".test"});
 ```
 
 ```
 <div id="test">
 </div>
-CreateFloatAnimation("#test")
+CreateFloatAnimation({className:"#test"})
 ```

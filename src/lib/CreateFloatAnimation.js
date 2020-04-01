@@ -1,13 +1,55 @@
-module.exports = function CreateFloatAnimation(className = "",time=30) {
-  if (!className) return "";
-  let elObj = document.querySelector(className);
-  elObj.style.position="absolute";
+module.exports = function CreateFloatAnimation(res = {}) {
+  let data = {
+    className: false,
+    speed: 30,
+    width: 20,
+    height: 20,
+    background: "none",
+    innerHtml: "x",
+    fontSize: 10,
+    color: "#000"
+  };
+  Object.assign(data, res);
+  console.log(data);
+  if (!data.className) {
+    new Error("没有传入class");
+  }
+  let is_off = 0;
+  let elObj = document.querySelector(data.className);
+  elObj.style.position = "absolute";
+
+  let bt = document.createElement("button"); //createElement生成button对象
+  bt.onclick = function(bt) {
+    //关闭动作，消除div
+    is_off = 1;
+    elObj.parentNode.removeChild(elObj);
+  };
+
   let showh =
     (document.documentElement.clientHeight || document.body.clientHeight) -
     elObj.offsetHeight;
   let showw =
     (document.documentElement.clientWidth || document.body.clientWidth) -
     elObj.offsetWidth;
+  bt.innerHTML = data.innerHtml;
+  bt.style.borderStyle = "none";
+  bt.style.textAlign = "center";
+  bt.style.fontSize = data.fontSize + "px";
+  bt.style.width = data.width + "px";
+  bt.style.height = data.height + "px";
+  bt.style.left = elObj.offsetWidth - data.width + "px";
+  bt.style.top = -data.height + "px";
+  if (data.background == "none") {
+    bt.style.background = "transparent";
+  } else {
+    bt.style.background = data.background;
+  }
+  bt.style.color = data.color;
+
+  bt.style.position = "absolute";
+
+  elObj.appendChild(bt); //添加到页面
+
   let htime = parseInt(Math.random() * showh);
   let wtime = parseInt(Math.random() * showw);
   let hkai = parseInt((Math.random() * 10) % 2);
@@ -30,7 +72,7 @@ module.exports = function CreateFloatAnimation(className = "",time=30) {
     elObj.style.top = htime + "px";
     elObj.style.left = wtime + "px";
   }
-  let createAction = setInterval(actionFun, time);
+  let createAction = setInterval(actionFun, data.speed);
   elObj.addEventListener(
     "mouseover",
     function(event) {
@@ -42,8 +84,12 @@ module.exports = function CreateFloatAnimation(className = "",time=30) {
   elObj.addEventListener(
     "mouseleave",
     function() {
+      if (is_off) {
+        clearInterval(createAction);
+        return "";
+      }
       event.stopPropagation();
-      createAction = setInterval(actionFun, time);
+      createAction = setInterval(actionFun, data.speed);
     },
     false
   );
