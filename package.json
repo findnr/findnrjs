@@ -1,10 +1,11 @@
 {
   "name": "findnrjs",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "this is a js tools:create tree,find nodes,create animate",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify --standalone findnrjs src/index.js > findnrjs.js && uglifyjs findnrjs.js -o findnrjs-min.js"
   },
   "repository": {
     "type": "git",

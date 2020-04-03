@@ -16,7 +16,7 @@ module.exports = function CreateFloatAnimation(res = {}) {
   }
   let is_off = 0;
   let elObj = document.querySelector(data.className);
-  elObj.style.position = "absolute";
+  elObj.style.position = "fixed";
 
   let bt = document.createElement("button"); //createElement生成button对象
   bt.onclick = function(bt) {
