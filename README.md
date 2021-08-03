@@ -6,15 +6,44 @@ This is a tools,create tree ,find node, create animate
 
 `npm install --save findnrjs`
 
+# v  1.1
+
+#### 增加时间接口
+
+```js
+import {Time} from "findnrjs"
+```
+
+#### 事例
+
+```js
+/*
+* 参数为Object (不是必传，不传参数时获取到本机的时间进行格式化)
+* 参数说明 {time:1627974788,type:'d,t,w',lang:'zh'} => time:时间戳 type: d 代表日期 ，t代表时间 ,w代表星期 lang: zh 代表中文字 en是-
+*/
+let time = Time.format({time:1627974788,type:'d,t,w',lang:'zh'}) //2021年8月3日 15:13:8 星期二
+let time = Time.format({time:1627974788,type:'d,t',lang:'en'})//2021-8-3 15:13:8
+let time = Time.format({time:1627974788})//2021年8月3日 15:13:8 星期二
+let time = Time.format()//2021年8月3日 15:13:8 星期二
+```
+
+
+
+# v  1.0
+
 #### 现有的函数
 
-`import {CreateNodeTree,FindNodeTree,CreateFloatAnimation} from "findnrjs"`
+```js
+import {CreateNodeTree,FindNodeTree,CreateFloatAnimation} from "findnrjs"
+```
+
+
 
 #### CreateNodeTree() 无限级栏目分类
 
 > 第一个参数是原始数据：结构如下
 
-```
+```js
 let data =[
             {test_id:'1',name:"书",parent_id:0},
             {test_id:'2',name:"编程开发",parent_id:1},
@@ -35,7 +64,7 @@ let data =[
 
 > 返回的结果是：
 
-```
+```js
 let newData=[
             {test_id:'1',name:"书",parent_id:0,
                 children:[
@@ -54,7 +83,7 @@ let newData=[
 
 > 第一个参数是原始数据：结构如下
 
-```
+```js
 let newData=[
             {test_id:'1',name:"书",parent_id:0,
                 children:[
@@ -79,7 +108,7 @@ let newData=[
 
 > 返回的结果是：
 
-```
+```js
 let newData={test_id:'3',name:"javascript开发书",parent_id:2}
 ```
 
@@ -87,7 +116,7 @@ let newData={test_id:'3',name:"javascript开发书",parent_id:2}
 
 > 参数是个对象
 
-```
+```js
 {
     className: false, //必须传（元素名称）
     speed: 30, //速度
@@ -100,13 +129,13 @@ let newData={test_id:'3',name:"javascript开发书",parent_id:2}
 }
 ```
 
-```
+```js
 <div class="test">
 </div>
 CreateFloatAnimation({className:".test"});
 ```
 
-```
+```js
 <div id="test">
 </div>
 CreateFloatAnimation({className:"#test"})

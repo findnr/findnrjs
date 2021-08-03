@@ -1,40 +1,85 @@
+/*
+ * @Author: 程英明
+ * @Date: 2021-08-02 14:40:31
+ * @LastEditTime: 2021-08-02 16:09:03
+ * @LastEditors: 程英明
+ * @Description: 
+ * @FilePath: \findnrjs\src\lib\Time.js
+ * QQ:504875043@qq.com
+ */
+let default_config={
+  time:'',
+  lang:'zh',
+  type:'d,t,w'
+}
 module.exports = {
   data: {
-    now: new Date(),
+    timeObj: new Date(),
   },
-  getFormat(obj) {
-    let o = {
-      time: 0,
-      action: 1,
-      type: "s",
-    };
-    if (obj.time) o.time = obj.time;
-    if (obj.action) o.action = obj.action;
-    if (obj.type) o.type = obj.time;
-    return this;
+  config(con){
+    return Object.assign(default_config,con);
   },
-  _Y() {
-    return this.data.getFullYear();
+  format(con) {
+    let config = this.config(con)
+    return this.getFormat(config) 
   },
-  _M: () => {
-    return this.data.getMonth() + 1;
+  getFormat(config){
+    if(config.time != ''){
+      config.time = Number(config.time)
+      if(config.time < 10000000000) config.time = config.time*1000;
+      this.data.timeObj = new Date(config.time);
+    }
+    let date=''
+    if(config.lang == 'en'){
+      date = this.Y()+'-'+this.M()+'-'+this.D();
+    }else{
+      date = this.Y()+'年'+this.M()+'月'+this.D()+'日';
+    }
+    let time = this.H()+':'+this.m()+':'+this.s()
+    let week = this.w();
+    let arr = config.type.split(',');
+    return this.getFormatStr(arr,date,time,week)
   },
-  _D: () => {
-    return this.data.getDate();
+  getFormatStr(arr,date,time,week){
+    let str = '';
+    for (let i = 0; i < arr.length; i++) {
+      if(i != 0){
+        str = str + ' ';
+      }
+      switch(arr[i]){
+        case 'd':
+          str=str+date;
+          break;
+        case 't':
+          str=str+time;
+          break;
+        case 'w':
+          str = str+week;
+          break;
+      }
+    }
+    return str;
   },
-  _W: () => {
-    return this.data.getDay();
+  Y() {
+    return this.data.timeObj.getFullYear();
   },
-  _H: () => {
-    return this.data.getHours();
+  M() {
+    return this.data.timeObj.getMonth() + 1;
   },
-  _I: () => {
-    return this.data.getMinutes();
+  D() {
+    return this.data.timeObj.getDate();
   },
-  _S: () => {
-    return this.data.getSeconds();
+  H() {
+    return this.data.timeObj.getHours();
   },
-  _MS: () => {
-    return this.data.getMilliseconds();
+  m() {
+    return this.data.timeObj.getMinutes();
   },
+  s() {
+    return this.data.timeObj.getSeconds();
+  },
+  w() {
+    return '星期' + '日一二三四五六'.charAt(this.data.timeObj.getDay())
+  }
+
 };
