@@ -10,7 +10,6 @@ module.exports = function CreateFloatAnimation(res = {}) {
     color: "#000"
   };
   Object.assign(data, res);
-  console.log(data);
   if (!data.className) {
     new Error("没有传入class");
   }
