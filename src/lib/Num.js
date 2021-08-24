@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-08-04 21:22:04
- * @LastEditTime: 2021-08-04 22:18:36
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-08-10 16:33:34
+ * @LastEditors: 程英明
  * @Description: In User Settings Edit
  * @FilePath: \findnrjs\src\lib\Num.js
  */
@@ -11,14 +11,17 @@ const encode = require("./num/Encode")
 
 module.exports = {
     encode:{
-        BankCard:()=>{
-
+        BankCard:(data)=>{
+            return encode.BankCard(data)
         },
-        money:()=>{
-
+        MoneyZh:(data)=>{
+           return encode.MoneyZh(data);
         },
-        IdCar:()=>{
-
+        MoneyEn:(data)=>{
+            return encode.MoneyEn(data)
+        },
+        IdCard:(data)=>{
+            return encode.IdCar(data)
         },
         phone:(data)=>{
             return encode.phone(data);

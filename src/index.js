@@ -1,3 +1,12 @@
+/*
+ * @Author: 程英明
+ * @Date: 2021-08-02 16:17:42
+ * @LastEditTime: 2021-08-24 16:14:39
+ * @LastEditors: 程英明
+ * @Description: 
+ * @FilePath: \findnrjs\src\index.js
+ * QQ:504875043@qq.com
+ */
 function _getFun(findnr) {
   return findnr && typeof findnr === "object" && "default" in findnr
     ? findnr["default"]
@@ -13,7 +22,9 @@ const CreateFloatAnimation = _getFun(require("./lib/CreateFloatAnimation"));
 const Time = _getFun(require("./lib/Time"));
 //数字相关
 const Num = _getFun(require("./lib/Num"));
+//浏览器本地（local）相关操作
+const Local = _getFun(require("./lib/Local"))
 //全部工具函数导出
-const index = { CreateNodeTree, CreateFloatAnimation, FindNodeTree, Time , Num };
+const index = { CreateNodeTree, CreateFloatAnimation, FindNodeTree, Time , Num , Local};
 //最终导出
 module.exports = index;
