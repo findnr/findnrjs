@@ -5,6 +5,25 @@ This is a tools,create tree ,find node, create animate
 #### 说明:这是一个 js 常用小工具，以下是使用用方法 #安装
 
 `npm install --save findnrjs`
+# v  1.1.4
+
+#### 增加浏览器本地存储操作（localStorage）
+
+```js
+import {Local} from "findnrjs"
+```
+#### 事例
+```js
+let obj = {token:'fds',name:'test'}
+//写入
+Local.set(obj)
+//获取取
+Local.get('token')
+//删除
+Local.del('token')
+//清空
+Local.clear()
+```
 
 # v  1.1
 
