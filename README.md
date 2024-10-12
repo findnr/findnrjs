@@ -5,6 +5,14 @@ This is a tools,create tree ,find node, create animate
 #### 说明:这是一个 js 常用小工具，以下是使用用方法 #安装
 
 `npm install --save findnrjs`
+#### 增加企业统一信用代码,身份证号,手机号,银行卡的验证
+```js
+import {Num} from "findnrjs";
+Num.check.IdCard()
+Num.check.UnitCard()
+Num.check.BankCard()
+Num.check.Phone()
+```
 # v  1.1.4
 
 #### 增加浏览器本地存储操作（localStorage）

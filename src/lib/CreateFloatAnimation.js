@@ -1,3 +1,10 @@
+/*
+ * @Author: findnr
+ * @Date: 2021-08-02 16:17:42
+ * @LastEditors: findnr
+ * @LastEditTime: 2024-10-12 11:25:24
+ * @Description: 
+ */
 module.exports = function CreateFloatAnimation(res = {}) {
   let data = {
     className: false,
@@ -82,7 +89,7 @@ module.exports = function CreateFloatAnimation(res = {}) {
   );
   elObj.addEventListener(
     "mouseleave",
-    function() {
+    function(event) {
       if (is_off) {
         clearInterval(createAction);
         return "";
